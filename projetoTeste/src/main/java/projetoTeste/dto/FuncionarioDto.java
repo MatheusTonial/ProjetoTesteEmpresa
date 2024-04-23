@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import projetoTeste.entity.Empresa;
 
 @Getter
 @Setter
@@ -18,5 +19,9 @@ public class FuncionarioDto {
 	private String sobrenome;
 
 	private String email;
+	
+	//private Empresa empresa;
+	
+	private Long idEmpresa;
 
 }

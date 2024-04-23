@@ -1,10 +1,13 @@
 package projetoTeste.entity;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,4 +34,9 @@ public class Funcionario {
 
 	@Column(name = "email", unique = true)
 	private String email;
+	
+	//@Nonnull
+	@ManyToOne	
+	@JoinColumn(name = "empresa_id", referencedColumnName = "id", nullable =  true)
+	private Empresa empresa;
 }

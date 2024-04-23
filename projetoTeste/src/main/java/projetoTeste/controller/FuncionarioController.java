@@ -26,28 +26,28 @@ public class FuncionarioController {
 
 	@PostMapping
 	public ResponseEntity<FuncionarioDto> createFuncionario(@RequestBody FuncionarioDto dto){
-		FuncionarioDto saveFuncionario = service.createFuncionario(dto);
+		FuncionarioDto saveFuncionario = service.createEntity(dto);
 
 		return new ResponseEntity<>(saveFuncionario, HttpStatus.CREATED);
 	}
 
 	@GetMapping("{id}")
 	public ResponseEntity<FuncionarioDto> getFuncionarioById(@PathVariable("id") Long funcionarioId){
-		FuncionarioDto funcionarioDto = service.getFuncionarioById(funcionarioId);
+		FuncionarioDto funcionarioDto = service.getEntityById(funcionarioId);
 
 		return ResponseEntity.ok(funcionarioDto);
 	}
 
 	@GetMapping
 	public ResponseEntity<List<FuncionarioDto>> getAllFuncionarios(){
-		List<FuncionarioDto> funcionarios = service.getAllFuncionarios();
+		List<FuncionarioDto> funcionarios = service.getAllEntityes();
 
 		return ResponseEntity.ok(funcionarios);
 	}
 
 	@PutMapping("{id}")
 	public ResponseEntity<FuncionarioDto> updateFuncionario(@PathVariable("id") Long funcionarioId, @RequestBody FuncionarioDto dto){
-		FuncionarioDto updateDto = service.updateFuncionario(funcionarioId, dto);
+		FuncionarioDto updateDto = service.updateEntity(funcionarioId, dto);
 
 		return ResponseEntity.ok(updateDto);
 	}
@@ -55,7 +55,7 @@ public class FuncionarioController {
 	@DeleteMapping("{id}")
 	public ResponseEntity<String> deleteFuncionario(@PathVariable("id") Long  funcionarioId){
 
-		service.deleteFuncionario(funcionarioId);
+		service.deleteEntity(funcionarioId);
 
 		return ResponseEntity.ok("Funcionario deletado");
 
